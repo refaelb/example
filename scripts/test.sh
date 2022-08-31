@@ -28,7 +28,7 @@ usage() {
 
 test() {
     echo "Not Implemented"
-    exit 1
+    # exit 1
 }
 
 # TODO add options support

@@ -36,7 +36,7 @@ WORKDIR /app/src
 # Run unit tests.
 ENV GOOS=linux
 ENV GOARCH=amd64
-ENTRYPOINT ["go", "test", "-timeout", "10s", "-v", "./..."]
+ENTRYPOINT ["go", "test", "-timeout", "10s", "-v", "./.."]
 
 ##
 ## STEP 3 - Build deployable lean image
@@ -57,4 +57,4 @@ ARG SERVER_PORT=8080
 EXPOSE ${SERVER_PORT}
 
 # Run the microservice on container startup.
-ENTRYPOINT ["/microservice"]
+ENTRYPOINT ["./microservice"]

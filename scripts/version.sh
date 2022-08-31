@@ -41,17 +41,28 @@ usage() {
 
 semver() {
     # TODO
-    echo "NA"
+    VERSION=$(cat ./VERSION) 
+    echo $VERSION
 }
 
 revision() {
     # TODO
-    echo "NA"
+    revision=$(git log -1 --format=%h)
+    echo $revision
+    
 }
 
 dirty() {
     # TODO
-    echo "-unknown"
+    branch=$(git status | head -n 1 | awk '{print $3}')
+    uncommitted=$(git status -suno | wc -l)
+    untracked=$(git status -u |grep modified | wc -l)
+    if [[  $branch == "main" && $uncommitted < 1 && $untracked < 1 ]]
+    then
+        echo -dirty
+    else
+        echo -unknown
+    fi
 }
 
 version() {
@@ -59,4 +70,4 @@ version() {
 }
 
 # TODO add options support
-version $@
+version ${@}

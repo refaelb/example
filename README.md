@@ -25,4 +25,4 @@ Example response:
 ## Test
 
 To test, run `make test` which brings up the service and tests it is alive and with a valid version.
-See [scripts/test.sh](./scripts/test.sh) and [scripts/version.sh](./scripts/version.sh).
+See [scripts/test.sh](./scripts/test.sh) and [scripts/version.sh](./scripts/version.sh)

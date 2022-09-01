@@ -55,13 +55,12 @@ revision() {
 dirty() {
     # TODO
     branch=$(git status | head -n 1 | awk '{print $3}')
-    uncommitted=$(git status -suno | wc -l)
-    untracked=$(git status -u |grep modified | wc -l)
-    if [[  $branch == "main" && $uncommitted < 1 && $untracked < 1 ]]
+    derty=$(git status -s )
+    if [[  $branch == "main" || -z $uncommitted  ]]
     then
         echo -dirty
     else
-        echo -unknown
+        echo ""
     fi
 }
 

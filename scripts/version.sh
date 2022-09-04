@@ -56,11 +56,11 @@ dirty() {
     # TODO
     branch=$(git rev-parse --abbrev-ref HEAD)
     Derty=$(git status -s)
-    if [[  $branch == "main" || -n $Derty  ]]
+    if [[  $branch != "main" || -n $Derty  ]]
     then
         echo -dirty
     else
-        echo ""
+        echo " "
     fi
 }
 

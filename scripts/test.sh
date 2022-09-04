@@ -27,8 +27,16 @@ usage() {
 }
 
 test() {
-    echo "Not Implemented"
-    # exit 1
+    status=$(curl -s "http://127.0.0.1:8080/health" )
+    output=$(echo $status )
+    if [[  $output == *"-dirty"* && $output == *"OK"* ]]
+    then 
+        echo "is dirty"
+    else 
+        echo "the service its OK"
+    fi
+
+
 }
 
 # TODO add options support

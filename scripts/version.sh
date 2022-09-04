@@ -47,20 +47,20 @@ semver() {
 
 revision() {
     # TODO
-    revision=$(git log -1 --format=%h)
+    revision=$(git rev-parse --short HEAD)
     echo $revision
     
 }
 
 dirty() {
     # TODO
-    branch=$(git status | head -n 1 | awk '{print $3}')
-    derty=$(git status -s )
-    if [[  $branch == "main" || -z $uncommitted  ]]
+    branch=$(git rev-parse --abbrev-ref HEAD)
+    Dirty=$(git status -s)
+    if [[  $branch != "main" && -n $Dirty  ]]
     then
         echo -dirty
     else
-        echo ""
+        echo " "
     fi
 }
 

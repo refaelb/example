@@ -56,8 +56,7 @@ dirty() {
     # TODO
     branch=$(git status | head -n 1 | awk '{print $3}')
     Derty=$(git status -s )
-    echo hi$Derty
-    if [[ -n $Derty  ]]
+    if [[  $branch != "main" || -n $Derty  ]]
     then
         echo -dirty
     else

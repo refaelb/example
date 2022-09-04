@@ -55,8 +55,8 @@ revision() {
 dirty() {
     # TODO
     branch=$(git rev-parse --abbrev-ref HEAD)
-    Derty=$(git status -s)
-    if [[  $branch != "main" || -n $Derty  ]]
+    Dirty=$(git status -s)
+    if [[  $branch != "main" && -n $Dirty  ]]
     then
         echo -dirty
     else
